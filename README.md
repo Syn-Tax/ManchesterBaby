@@ -12,6 +12,8 @@ Group 4 Manchester Baby project
 
 - Jackson
 - Ross
+- Thomas
+- Will
 
 ## Assembler
 

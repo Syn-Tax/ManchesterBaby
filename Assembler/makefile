@@ -1,15 +1,14 @@
 CC = gcc
-CFLAGS = -Wall
-OBJECTS = util.o instruction.o
+CFLAGS = -Wall -g
+OBJECTS = util.o lexer.o
 
-default: tester
-	@./tester
+default: assembler
 
-tester: $(OBJECTS) tester.c
-	@${CC} ${CFLAGS} $(OBJECTS) tester.c -o tester
+assembler: $(OBJECTS) assembler.c
+	@${CC} ${CFLAGS} $(OBJECTS) assembler.c -o assembler
 
 %.o: %.c %.h
 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-	@rm tester $(OBJECTS)
+	@rm assembler $(OBJECTS)
