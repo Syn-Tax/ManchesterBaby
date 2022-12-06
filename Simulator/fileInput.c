@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
-// Runs with command: gcc fileInput.c -lm 
+// Runs with command: gcc fileInput.c
 // needs "BabyTest1-MC.txt" in same folder
 
 int power(int base, int exponent);
@@ -76,7 +75,7 @@ int binaryToDecimal(char binary[]) {
 
     for (int i=0; i<32; ++i) {
         if (binary[i] == '1') {
-            decimal = decimal + (pow(2, 31-i));
+            decimal |= 1 << 31-i;
         }
     }
     printf("Decimal output:%u", decimal);
