@@ -3,32 +3,11 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "fileInput.h"
-
-// Runs with command: gcc fileInput.c
-// needs "BabyTest1-MC.txt" in same folder
-
-int main()
-{
-    uint32_t *store = (uint32_t *)malloc(sizeof(uint32_t) * STORE_SIZE);
-
-    if (store == NULL)
-    {
-        printf("Memory allocation error\n");
-        exit(1);
-    }
-
-    readMachineCode(fopen("BabyTest1-MC.txt", "r"), store);
-    printf("\nPrint store:\n");
-    for (int n = 0; n < STORE_SIZE; n++)
-    {
-        printf("%u ", store[n]);
-    }
-    printf("\n");
-}
+#include "baby.h"
 
 // idea for this method is that I read in each character individually and append to binary char[]
 // after filling the char[], I use binaryToDecimal() and store output in Store[].
-void readMachineCode(FILE *fp, uint32_t *store)
+void readMachineCode(FILE *fp, Baby *baby)
 {
 
     if (fp != NULL)
@@ -40,7 +19,7 @@ void readMachineCode(FILE *fp, uint32_t *store)
         {
             // printf("%s\n", buffer);
             uint32_t output = binaryToDecimal(buffer);
-            store[counter] = output;
+            baby->store[counter] = output;
             counter++;
         }
 
@@ -48,7 +27,8 @@ void readMachineCode(FILE *fp, uint32_t *store)
     }
     else
     {
-        // should give error really but file should always exist
+        printf("Function readMachineCode received a null pointer, exiting now\n");
+        exit(1);
     }
 }
 
