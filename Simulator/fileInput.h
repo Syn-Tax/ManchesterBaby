@@ -3,9 +3,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include "baby.h"
-
-#define STORE_SIZE 32
+#include "instructionset.h"
 
 void readMachineCode(FILE *fp, Baby *baby);
 uint32_t binaryToDecimal(char binary[]);

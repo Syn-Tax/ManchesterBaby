@@ -38,13 +38,13 @@ uint32_t binaryToDecimal(char binary[])
 
     uint32_t decimal = 0;
 
-    for (int i = 0; i < 32; ++i)
+    for (int i = 31; i >= 0; i--)
     {
         if (binary[i] == '1')
         {
-            decimal |= 1U << 31 - i;
+            decimal |= 1U << i;
         }
     }
-    printf("Decimal output:%u\n", decimal);
+    // printf("Decimal output:%u\n", decimal);
     return decimal;
 }

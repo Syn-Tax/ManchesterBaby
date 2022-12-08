@@ -41,8 +41,10 @@ int main(int argc, char **argv)
 		decode(baby->store[baby->CI], currentInstruction);
 		if (currentInstruction->opcode == STP)
 		{
+			printf("Execution finished\n");
 			break;
 		}
+		printf("CI: %u\n", baby->CI);
 		execute(currentInstruction, baby);
 		displayStore(baby);
 		printf("\n\n");
@@ -98,7 +100,7 @@ void displayStore(Baby *baby)
 {
 	for (int i = 0; i < STORE_SIZE; i++)
 	{
-		for (int j = 0; j < 32; j++)
+		for (int j = 0; j < 31; j++)
 		{
 			printf("%u", (baby->store[i] >> j) % 2);
 		}
