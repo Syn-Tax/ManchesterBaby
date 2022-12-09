@@ -1,3 +1,5 @@
+// Group Number - 4
+// Jackson Stewart, Oscar Morris, Ross McBride, Thomas Laland-Brown, Will Adams
 #ifndef __BABY_H__
 #define __BABY_H__
 
