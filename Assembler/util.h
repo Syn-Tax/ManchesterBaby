@@ -1,3 +1,5 @@
+// Group Number - 4
+// Jackson Stewart, Oscar Morris, Ross McBride, Thomas Laland-Brown, Will Adams
 #ifndef __UTIL__H__
 #define __UTIL__H__
 
