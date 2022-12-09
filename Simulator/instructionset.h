@@ -2,9 +2,10 @@
 #define __INSTRUCTIONSET_H__
 
 #include <stdint.h>
-// #include "baby.h"
 
-#define STORE_SIZE 32
+#define STORE_SIZE 32 // number of 32 bit integers in the store
+
+// instruction datastructure
 typedef struct instruction
 {
 	uint8_t opcode;
@@ -12,6 +13,7 @@ typedef struct instruction
 
 } Instruction;
 
+// baby datastructure (in here rather than baby.h to remove circular includes)
 typedef struct baby
 {
 	uint32_t store[STORE_SIZE];
@@ -20,6 +22,11 @@ typedef struct baby
 
 } Baby;
 
+/** Function for opcodes
+ *  @param ins: pointer to instruction object
+ *  @param baby: pointer to baby object
+ *  @returns void
+ */
 void JMP_fn(Instruction *ins, Baby *baby);
 void JRP_fn(Instruction *ins, Baby *baby);
 void LDN_fn(Instruction *ins, Baby *baby);

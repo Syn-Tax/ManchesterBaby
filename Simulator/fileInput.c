@@ -5,8 +5,11 @@
 #include "fileInput.h"
 #include "baby.h"
 
-// idea for this method is that I read in each character individually and append to binary char[]
-// after filling the char[], I use binaryToDecimal() and store output in Store[].
+/** Function to read machine code into the store of the baby object
+ *  @param fp: file pointer to input machine code file
+ *  @param baby: pointer to output baby object
+ *  @returns void
+ */
 void readMachineCode(FILE *fp, Baby *baby)
 {
 
@@ -32,7 +35,10 @@ void readMachineCode(FILE *fp, Baby *baby)
     }
 }
 
-// takes char[] of binary characters and outputs corresponding decimal value
+/** Function to convert binary string to integer
+ *  @param binary: binary string
+ *  @returns 32 bit unsigned int as output
+ */
 uint32_t binaryToDecimal(char binary[])
 {
 
@@ -45,6 +51,5 @@ uint32_t binaryToDecimal(char binary[])
             decimal |= 1U << i;
         }
     }
-    // printf("Decimal output:%u\n", decimal);
     return decimal;
 }
