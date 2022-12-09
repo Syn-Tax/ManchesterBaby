@@ -8,6 +8,7 @@
 
 int main(int argc, char **argv)
 {
+	// allocate memory for datastructures
 	Baby *baby = (Baby *)malloc(sizeof(Baby));
 	Instruction *currentInstruction = (Instruction *)malloc(sizeof(Instruction));
 
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
 		printf("Input file does not exist\n");
 	}
 
+	// initialise datastructures and read machine code
 	readMachineCode(inputfp, baby);
 	baby->CI = 0;
 	baby->accumulator = 0;
@@ -52,12 +54,22 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+/** Function to decode binary integer into Instruction datastructure
+ *  @param line: input integer
+ *  @param ins: pointer to output datastructure
+ *  @returns void
+ */
 void decode(uint32_t line, Instruction *ins)
 {
 	ins->operand = line % 32;
 	ins->opcode = (line >> 13) % 8;
 }
 
+/** Function to execute the desired instruction
+ *  @param ins: pointer to input instruction object
+ *  @param baby: pointer to baby object
+ *  @returns void
+ */
 void execute(Instruction *ins, Baby *baby)
 {
 	if (ins->opcode == JMP)
@@ -96,6 +108,10 @@ void execute(Instruction *ins, Baby *baby)
 	}
 }
 
+/** Function to display the store
+ *  @param baby: pointer to baby object
+ *  @returns void
+ */
 void displayStore(Baby *baby)
 {
 	for (int i = 0; i < STORE_SIZE; i++)
