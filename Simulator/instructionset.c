@@ -1,3 +1,5 @@
+// Group Number - 4
+// Jackson Stewart, Oscar Morris, Ross McBride, Thomas Laland-Brown, Will Adams
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
